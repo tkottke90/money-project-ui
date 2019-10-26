@@ -8,16 +8,33 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+// shared components
+import { BaseComponent } from './shared/base/base.component';
+
+// material
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+
+// modules
+import { LoginModule } from './login/login.module';
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BaseComponent
   ],
   imports: [
-    BrowserModule,
+  BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    // Material
+    MatIconModule,
+    MatToolbarModule,
+
+    // modules
+    LoginModule
   ],
   providers: [],
   bootstrap: [AppComponent]
