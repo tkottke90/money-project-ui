@@ -1,0 +1,16 @@
+.toolbar {
+	display: grid;
+	grid-template-columns: 2rem 1rem 30vw 1fr; 
+
+	&__main-action {
+		grid-column: 1;
+	}
+
+	&__title {
+		grid-column: 3;
+	}
+
+	&__add-actions {
+		grid-column: 4;
+	}
+}

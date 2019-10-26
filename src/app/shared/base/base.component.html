@@ -1,0 +1,8 @@
+<mat-toolbar color="primary" class="toolbar">
+	<!-- Navigation Icon -->
+	<ng-content class="main-action toolbar__main-action" select="[toolbar-main]"></ng-content>
+
+	<span class="title toolbar__title">{{ title }}</span>
+
+	<ng-content class="add-actions toolbar__add-actions" select="[toolbar-actions]"></ng-content>
+</mat-toolbar>
