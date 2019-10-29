@@ -1,11 +1,8 @@
 const express = require('express');
 const proxy = require('http-proxy-middleware');
 
-const routes = require('./routes');
-
 var app = express();
 
-// routes(app);
 
 app.use('/api', proxy({
 	pathRewrite: { '^/api': '' },
