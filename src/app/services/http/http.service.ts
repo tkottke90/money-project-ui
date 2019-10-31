@@ -12,19 +12,19 @@ export class HttpService {
   ) { }
 
   get(url: string, options?): Observable<any> {
-    return this.http.get(url, options);
+    return this.http.get(`/api/${url}`, options);
   }
 
   post(url: string, body: any): Observable<any> {
-    return this.http.post(url, body);
+    return this.http.post(`/api/${url}`, body);
   }
 
   patch(url: string, body: any): Observable<any> {
-    return this.http.patch(url, body);
+    return this.http.patch(`/api/${url}`, body);
   }
 
   delete(url: string): Observable<any> {
-    return this.http.delete(url);
+    return this.http.delete(`/api/${url}`);
   }
 
 }
