@@ -55,19 +55,19 @@ export class UsersService {
     return this.http.get(`users/${userId}`).toPromise();
   }
 
-  createUser(user: User): Promise<User> {
+  createUser(user: User): Promise<BaseResponse<User>> {
     return this.http.post('users', user).toPromise();
   }
 
-  patchUser(user: User): Promise<User> {
+  patchUser(user: User): Promise<BaseResponse<User>> {
     return this.http.patch(`users/${user.id}`, user).toPromise();
   }
 
-  updateUser(user: User): Promise<User> {
+  updateUser(user: User): Promise<BaseResponse<User>> {
     return this.http.post(`users/${user.id}`, user).toPromise();
   }
 
-  deleteUser(user: User): Promise<User> {
+  deleteUser(user: User): Promise<BaseResponse<User>> {
     return this.http.delete(`users/${user.id}`).toPromise();
   }
 }
