@@ -4,8 +4,8 @@
   "scripts": {
     "ng": "ng",
     "start": "concurrently \"npm run start:ui\" \"npm run start:proxy\"",
-    "start:ui": "ng serve --host=0.0.0.0",
-    "start:proxy": "PROXY_PORT=8000 TARGET_PORT=4200 NODE_ENV=development API_URL=localhost:3000 nodemon proxy/index.js",
+    "start:ui": "ng serve --aot",
+    "start:proxy": "PROXY_PORT=8000 TARGET_PORT=4200 NODE_ENV=development API_URL=http://localhost:3000 nodemon proxy/index.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
