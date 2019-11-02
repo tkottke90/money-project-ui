@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LoginRoutingModule } from './login.routing';
 
+import { ReactiveFormsModule } from '@angular/forms';
+
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -16,6 +18,7 @@ import { LoginComponent } from './login/login.component';
   imports: [
     CommonModule,
     LoginRoutingModule,
+    ReactiveFormsModule,
     // material
     MatCardModule,
     MatButtonModule,
