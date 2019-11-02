@@ -9,6 +9,7 @@ import { Component, OnInit, ChangeDetectionStrategy, Input } from '@angular/core
 export class BaseComponent implements OnInit {
 
   @Input() title: string = 'Money App';
+  @Input() centered: boolean = false;
 
   constructor() { }
 

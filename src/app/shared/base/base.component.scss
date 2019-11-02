@@ -13,4 +13,17 @@
 	&__add-actions {
 		grid-column: 4;
 	}
+
+	&.centered {
+		display: flex;
+		justify-content: center;
+
+		.toolbar_main-action {
+			display: none;
+		}
+
+		.toolbar_add-actions {
+			display: none;
+		}
+	}
 }
