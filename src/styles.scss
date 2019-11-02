@@ -1,13 +1,16 @@
 @import '~@angular/material/theming';
 @import './styles/light-palette';
 @import './styles/dark-palette';
+@import './styles/mixin';
 
 body[theme="light"] {
 	@include angular-material-theme($money-ui-light-theme);
+	@include html-themes($money-ui-light-theme);
 }
 
 body[theme="dark"] {
 	@include angular-material-theme($money-ui-dark-theme);
+	@include html-themes($money-ui-dark-theme);
 
 	background-color: mat-color($money-ui-dark-primary);
 }
