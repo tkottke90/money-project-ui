@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 
 import { User } from '../../class/user.class';
 import { BaseResponse } from 'src/app/class/base-response';
+import { WindowService } from '../window/window.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,26 +14,32 @@ export class UsersService {
   $user: BehaviorSubject<User | null> = new BehaviorSubject(null);
 
   constructor(
-    private http: HttpService
+    private http: HttpService,
+    private window: WindowService
   ) { }
 
-  async getCurrentUser() {
-    if (!this.$user.getValue()) {
+  async getCurrentUser(): Promise<User | boolean> {
+    const user = this.$user.getValue();
+    if (!user) {
       return false;
     }
 
-    return this.http.get('users?name=Thomas').toPromise();
+    return this.http.get(`users/${user.id}`).toPromise();
   }
 
-  async login(email, password) {
-    const result = await this.http.post('authentication', {
-      strategy: 'local',
-      email,
-      password
-    }).toPromise();
+  async login(email, password): Promise<boolean> {
+      try {
+        const result = await this.http.post('authentication', {
+          strategy: 'local',
+          email,
+          password
+        }).toPromise();
 
-    console.log(result);
-    return result;
+        this.window.setAccessToken(result);
+        return true;
+      } catch (err) {
+        return false;
+      }
   }
 
   /**
