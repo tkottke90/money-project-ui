@@ -35,11 +35,18 @@ export class UsersService {
           password
         }).toPromise();
 
-        this.window.setAccessToken(result);
+        this.window.setAccessToken({ accessToken: result.accessToken});
+
+        this.$user.next(result.user as User);
+
         return true;
       } catch (err) {
         return false;
       }
+  }
+
+  logout() {
+    this.window.removeAccessToken();
   }
 
   /**
