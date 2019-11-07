@@ -1,3 +1,5 @@
+<app-base centered="true"></app-base>
+
 <mat-card>
 	<mat-card-header>
 		<svg viewBox="0 0 100 100">
@@ -9,14 +11,15 @@
 		<form [formGroup]="loginForm">
 			<mat-form-field>
 				<input #email matInput placeholder="Email*" formControlName="email">
-				<mat-error *ngIf="email.invalid">Required</mat-error>
-			</mat-form-field>
+				<mat-error *ngIf="loginForm.get('email').invalid">{{ getErrors('email') }}</mat-error>
+			</mat-form-field>	
 			<mat-form-field>
 				<input matInput placeholder="Password*" formControlName="password" type="password">
+				<mat-error *ngIf="loginForm.get('password').invalid">{{ getErrors('password') }}</mat-error>
 			</mat-form-field>
 		</form>
 	</mat-card-content>
 	<mat-card-actions>
-		<button mat-raised-button color="primary">Login</button>
+		<button mat-raised-button color="primary" (click)="login()">Login</button>
 	</mat-card-actions>
 </mat-card>
