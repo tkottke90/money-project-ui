@@ -1,5 +1,6 @@
 mat-card {
 	max-width: 25rem;
+	margin: 1rem;
 }
 
 mat-card-header {
@@ -21,7 +22,7 @@ svg {
 
 form {
 	display: grid;
-	grid-template-rows: 3rem 3rem;
+	grid-template-rows: 4rem 4rem;
 }
 
 mat-card-actions {
