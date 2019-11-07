@@ -11,7 +11,9 @@ import {
   Router
 } from '@angular/router';
 import { Observable } from 'rxjs';
+import * as jwt_decode from 'jwt-decode';
 import { UsersService } from '../../services/users/users.service';
+import { WindowService } from 'src/app/services/window/window.service';
 
 @Injectable({
   providedIn: 'root'
@@ -20,13 +22,18 @@ export class IsLoggedInGuard implements CanActivate, CanActivateChild, CanLoad {
 
   constructor(
     private userService: UsersService,
-    private router: Router
+    private router: Router,
+    private window: WindowService
   ) { }
 
   async checkLogin(url: string): Promise<boolean> {
     const user = await this.userService.getCurrentUser();
-    console.log('checkLogin', user);
-    if (user) {
+    const token = jwt_decode(this.window.getAccessToken());
+
+    const now = new Date();
+    const tokenExp = new Date(token.exp * 1000);
+
+    if (user || now < tokenExp ) {
       return true;
     }
 
