@@ -47,6 +47,7 @@ export class UsersService {
 
   logout() {
     this.window.removeAccessToken();
+    this.$user.next(null);
   }
 
   /**
