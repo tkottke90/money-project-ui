@@ -10,13 +10,13 @@ const routes: Routes = [
     },
     {
       path: '',
-      loadChildren: () => import('./user/user.module').then(mod => mod.UserModule),
+      loadChildren: () => import('./home/home.module').then(mod => mod.HomeModule),
       canLoad: [IsLoggedInGuard]
     }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+exports: [RouterModule]
 })
 export class AppRoutingModule { }
