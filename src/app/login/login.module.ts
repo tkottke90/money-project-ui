@@ -4,7 +4,7 @@ import { LoginRoutingModule } from './login.routing';
 
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { BaseComponent } from '../shared/base/base.component';
+import { SharedModule } from '../shared/shared.module';
 
 // Angular Material
 import { MatCardModule } from '@angular/material/card';
@@ -19,19 +19,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
-  declarations: [LoginComponent, BaseComponent],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     LoginRoutingModule,
     ReactiveFormsModule,
+
     // material
     MatCardModule,
-    MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule,
-    MatIconModule,
-    MatToolbarModule
+    MatButtonModule,
+
+    // custom
+    SharedModule
   ]
 })
 export class LoginModule { }
